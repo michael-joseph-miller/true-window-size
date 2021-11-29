@@ -13,8 +13,8 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm run install:lib
-          npm run build:lib
+          npm install
+          npm run build
 
       - name: setup-node@v2
         uses: actions/setup-node@v2
@@ -23,6 +23,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish lib to NPM
-        run: npm publish lib/ --access public
-        continue-on-error: true
+      - name: Publish to NPM
+        run: npm publish --access public
