@@ -1,33 +1,27 @@
 {
-  "name": "lib-starter",
-  "version": "1.0.0",
-  "description": "",
+  "name": "true-window-size",
+  "version": "1.0.1",
+  "description": "Get true window size including while dev tools is in use",
   "author": "Michael Joseph Miller",
   "private": false,
   "license": "MIT",
   "keywords": [],
+  "main": "dist/main.js",
+  "module": "dist/module.js",
   "scripts": {
-    "install": "cd lib/ && npm i && cd ../demo/ && npm i && cd ../",
-    "start": "npm run build:lib && cd demo/ && npm start && cd ../",
-    "build": "npm run build:lib",
-    "version:major": "cd ../lib/ && npm version major && cd ../",
-    "version:minor": "cd ../lib/ && npm version minor && cd ../",
-    "version:patch": "cd ../lib/ && npm version patch && cd ../",
-    "link": "cd demo/ && npm link ../lib && cd ../",
-    "reset:all": "npm run reset:demo && npm run reset:lib && npm run reset",
-    "install:lib": "cd lib/ && npm i && cd ../",
-    "install:demo": "cd demo/ && npm i && cd ../",
-    "build:lib": "cd lib/ && npm run build && cd ../",
-    "reset": "rm -rf node_modules/ dist/ .parcel-cache/ package-lock.json",
-    "reset:lib": "cd lib/ && rm -rf node_modules/ dist/ .parcel-cache/ package-lock.json && cd ../",
-    "reset:demo": "cd demo/ && rm -rf node_modules/ dist/ .parcel-cache/ package-lock.json && cd ../"
+    "watch": "parcel watch src/*.* src/**/*.*",
+    "prebuild": "rm -rf dist/**",
+    "build": "parcel build src/index.js",
+    "prepublishOnly": "npm run build"
   },
-  "homepage": "https://github.com/michael-joseph-miller/lib-starter#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michael-joseph-miller/lib-starter.git"
+    "url": "git+https://github.com/michael-joseph-miller/true-window-size.git"
   },
   "bugs": {
-    "url": "https://github.com/michael-joseph-miller/lib-starter/issues"
+    "url": "https://github.com/michael-joseph-miller/true-window-size/issues"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.1"
   }
 }
